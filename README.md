@@ -26,9 +26,11 @@ npm i @kr05/simple-stepper
 
 ## Roadmap
 There are various milestones I would like to achieve with this component. Currently, these are:
-[ ] Replace mwc-button and mwc-icon with with simple components.
-[ ] Expose as much css as possible.
-[ ] Align implementation as much as possible with the [Gold Standard](https://github.com/webcomponents/gold-standard/wiki) document.
+- [ ] Replace mwc-button and mwc-icon with with simple components.
+
+- [ ] Expose as much css as possible.
+
+- [ ] Align implementation as much as possible with the [Gold Standard](https://github.com/webcomponents/gold-standard/wiki) document.
 
 ## Disclaimer
 This is very much a work in progress, so take precautions if you plan on using ```<simple-stepper>``` in production. That being said, I depend on this component for my business needs, which means that I will continue to update and support this package for the foreseeable future. If you find that it's not working as expected or wish to see some feature added, please submit an issue and I will get right on it.
