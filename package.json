@@ -1,6 +1,6 @@
 {
   "name": "@kr05/simple-stepper",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Stepper component that (mostly) adheres to Material Design.",
   "author": "Kevin Rivera",
   "license": "MIT",
@@ -13,7 +13,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/kr05/simple-stepper.git" 
+    "url": "git://github.com/kr05/simple-stepper.git"
   },
   "scripts": {
     "start": "es-dev-server --app-index demo/index.html --node-resolve --open --watch",
@@ -66,5 +66,7 @@
       "git add"
     ]
   },
-  "publishConfig": { "registry": "https://npm.pkg.github.com" }
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
 }
