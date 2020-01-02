@@ -1,6 +1,6 @@
 {
   "name": "@kr05/simple-stepper",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Stepper component that (mostly) adheres to Material Design.",
   "author": "Kevin Rivera",
   "license": "MIT",
