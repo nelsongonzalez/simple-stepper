@@ -1,11 +1,20 @@
 {
-  "name": "simple-stepper",
-  "version": "0.0.0",
-  "description": "Webcomponent simple-stepper following open-wc recommendations",
-  "author": "simple-stepper",
+  "name": "@kr05/simple-stepper",
+  "version": "0.1.0",
+  "description": "Stepper component that (mostly) adheres to Material Design.",
+  "author": "Kevin Rivera",
   "license": "MIT",
   "main": "index.js",
   "module": "index.js",
+  "scope": "@kr05",
+  "keywords": [
+    "web-component",
+    "lit-element"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kr05/simple-stepper.git" 
+  },
   "scripts": {
     "start": "es-dev-server --app-index demo/index.html --node-resolve --open --watch",
     "lint:eslint": "eslint --ext .js,.html . --ignore-path .gitignore",
@@ -56,5 +65,6 @@
       "prettier --write",
       "git add"
     ]
-  }
+  },
+  "publishConfig": { "registry": "https://npm.pkg.github.com" }
 }
