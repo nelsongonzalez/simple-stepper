@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+    body {
+      font-family: 'Open Sans',sans-serif;
+      background: #fafafa;
+      color: #121212;
+    }
+  </style>
+</head>
+<body>
+  <div id="demo"></div>
+
+  <script type="module">
+    import { html, render } from 'lit-html';
+    import '../simple-stepper.js';
+    import '../simple-step.js';
+
+    const title = 'Hello owc World!';
+    render(
+      html`
+        <h2>Simple Stepper</h2>
+        <simple-stepper>
+          <simple-step label="First step" subtitle="Edit me!" editable></simple-step>
+          <simple-step label="Second step" subtitle="Please don't skip me." optional></simple-step>
+          <simple-step label="Last step" lastStep></simple-step>
+        </simple-stepper>
+      `,
+      document.querySelector('#demo')
+    );
+  </script>
+</body>
+</html>
