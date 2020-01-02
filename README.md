@@ -1,92 +1,28 @@
 # \<simple-stepper>
 
-This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
+> This component is a WIP. Please read the [disclaimer](#Disclaimer) for more context.
+
+Stepper component that (mostly) adheres to Material Design. Built with [lit-element](https://lit-element.polymer-project.org/) and [open-wc](https://github.com/open-wc/open-wc). Built on top off the amazing [l2t-paper-stepper](https://github.com/Link2Twenty/l2t-paper-stepper).
 
 ## Installation
 ```bash
-npm i simple-stepper
+npm i @kr05/simple-stepper
 ```
 
 ## Usage
 ```html
 <script type="module">
   import 'simple-stepper/simple-stepper.js';
+  import 'simple-stepper/simple-step.js';
 </script>
 
-<simple-stepper></simple-stepper>
+<simple-stepper>
+  <simple-step label="First step" subtitle="Edit me!" editable></simple-step>
+  <simple-step label="Second step" subtitle="Please don't skip me." optional></simple-step>
+  <simple-step label="Third step" subtitle="I am locked, try opening me." locked></simple-step>
+  <simple-step label="Last step" lastStep></simple-step>
+</simple-stepper>
 ```
 
-## Linting with ESLint, Prettier, and Types
-To scan the project for linting errors, run
-```bash
-npm run lint
-```
-
-You can lint with ESLint and Prettier individually as well
-```bash
-npm run lint:eslint
-```
-```bash
-npm run lint:prettier
-```
-
-To automatically fix many linting errors, run
-```bash
-npm run format
-```
-
-You can format using ESLint and Prettier individually as well
-```bash
-npm run format:eslint
-```
-```bash
-npm run format:prettier
-```
-
-## Testing with Karma
-To run the suite of karma tests, run
-```bash
-npm run test
-```
-or to run them in compatibility mode for legacy browsers
-```bash
-npm run test:compatibility
-```
-
-To run the tests in watch mode (for <abbr title="test driven development">TDD</abbr>, for example), run
-
-```bash
-npm run test:watch
-```
-or
-```bash
-npm run test:compatibility
-```
-
-## Testing with Karma via BrowserStack
-To run the suite of karma tests in BrowserStack, run
-```bash
-npm run test:bs
-```
-
-## Managing Test Snapshots
-You can manage the test snapshots using
-```bash
-npm run test:update-snapshots
-```
-or
-```bash
-npm run test:prune-snapshots
-```
-
-
-## Local Demo with `es-dev-server`
-```bash
-npm start
-```
-To run a local development server that serves the basic demo located in `demo/index.html`
-
-```bash
-npm start:compatibility
-```
-To run a local development server in compatibility mode for older browsers that serves the basic demo located in `demo/index.html`
+## Disclaimer
+This is very much a work in progress, so take precautions if you plan on using <simple-stepper> in production. That being said, I depend on this component for my business needs, which means that I will continue to update and support this package for the foreseeable future. If you find that it's not working as expected or wish to see some feature added, please submit an issue and I will get right on it.
