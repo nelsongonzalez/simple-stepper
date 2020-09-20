@@ -51,7 +51,10 @@
     "extends": [
       "@open-wc/eslint-config",
       "eslint-config-prettier"
-    ]
+    ],
+    "rules": {
+      "class-methods-use-this": "off"
+    }
   },
   "prettier": "@open-wc/prettier-config",
   "husky": {
