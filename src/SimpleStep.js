@@ -385,12 +385,12 @@ export class SimpleStep extends LitElement {
   /**
    * Return: icon name
    */
-  static _getIcon(editable, save, locked) {
+  _getIcon(editable, save, locked) {
     if (locked) return lockIcon;
     return editable ? editIcon : checkIcon;
   }
 
-  static _computeIsIconHidden(locked, save, editable) {
+  _computeIsIconHidden(locked, save, editable) {
     const b = locked || (save && editable) || save;
     console.log('computing is icon hidden:', b);
     return !b;
