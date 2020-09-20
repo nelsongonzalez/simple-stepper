@@ -27,7 +27,8 @@
     "test:watch": "karma start --auto-watch=true --single-run=false",
     "test:update-snapshots": "karma start --update-snapshots",
     "test:prune-snapshots": "karma start --prune-snapshots",
-    "test:bs": "karma start karma.bs.config.js --coverage"
+    "test:bs": "karma start karma.bs.config.js --coverage",
+    "deploy:np": "np --no-tests"
   },
   "dependencies": {
     "@material/mwc-icon": "^0.18.0",
