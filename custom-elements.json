@@ -3,19 +3,13 @@
   "tags": [
     {
       "name": "simple-stepper",
-      "description": "A component with a title and an action counter",
+      "description": "Stepper component that (mostly) adheres to Material Design.",
       "properties": [
         {
           "name": "title",
           "type": "String",
-          "description": "The title of your component",
+          "description": "simple-stepper",
           "default": "Hey there"
-        },
-        {
-          "name": "counter",
-          "type": "Number",
-          "description": "An action counter",
-          "default": 0
         }
       ],
       "events": [],

@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
-import '@material/mwc-button';
 import '@material/mwc-icon';
+import './StepperButton.js';
 
 const checkIcon = html`
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -138,7 +138,7 @@ export class SimpleStep extends LitElement {
           grid-area: buttons;
           display: none;
         }
-        mwc-button {
+        stepper-button {
           margin-right: 8px;
         }
         .continue-btn,
@@ -192,7 +192,7 @@ export class SimpleStep extends LitElement {
 
   render() {
     return html`
-      <span @click="${_ => this._fireEvent('select')}" class="step-number">
+      <span @click="${() => this._fireEvent('select')}" class="step-number">
         <span ?hidden="${this.locked || (this.save && this.editable) || this.save}"
           >${this._stepIndex + 1}</span
         >
@@ -202,7 +202,7 @@ export class SimpleStep extends LitElement {
           >${this._getIcon(this.editable, this.save, this.locked)}</mwc-icon
         >
       </span>
-      <div @click="${_ => this._fireEvent('select')}" class="step-name">
+      <div @click="${() => this._fireEvent('select')}" class="step-name">
         <div class="label">${this.label ? this.label : `Step ${this._stepIndex + 1}`}</div>
         <div class="optional-label">
           ${this.subtitle ? this.subtitle : ''}${this.optional ? ' (Optional)' : ''}
@@ -213,48 +213,49 @@ export class SimpleStep extends LitElement {
         <slot></slot>
       </div>
       <div ?hidden="${this.hideButtons}" class="buttons">
-        <mwc-button
+        <stepper-button
           ?hidden="${!this.save || !this.editable}"
           @click="${() => this._fireEvent('update')}"
           class="update-btn"
           unelevated
-          >${this.updateButtonText ? this.updateButtonText : 'update'}</mwc-button
+          >${this.updateButtonText ? this.updateButtonText : 'update'}</stepper-button
         >
-        <mwc-button
+        <stepper-button
           ?hidden="${this.laststep || this.save}"
           @click="${() => this._fireEvent('continue')}"
           class="continue-btn"
           unelevated
-          >${this.continueButtonText ? this.continueButtonText : 'continue'}</mwc-button
+          >${this.continueButtonText ? this.continueButtonText : 'continue'}</stepper-button
         >
-        <mwc-button
+        <stepper-button
           ?hidden="${!this.optional || this.save}"
           @click="${() => this._fireEvent('skip')}"
           class="skip-btn"
-          >${this.skipButtonText ? this.skipButtonText : 'skip'}</mwc-button
+          >${this.skipButtonText ? this.skipButtonText : 'skip'}</stepper-button
         >
-        <mwc-button
+        <stepper-button
           ?hidden="${!this.laststep}"
           @click="${() => this._fireEvent('finish')}"
           class="finish-btn"
           unelevated
-          >${this.finishButtonText ? this.finishButtonText : 'finish'}</mwc-button
+          >${this.finishButtonText ? this.finishButtonText : 'finish'}</stepper-button
         >
-        <mwc-button
+        <stepper-button
           ?hidden="${this.hideResetButton}"
-          @click="${_ => this._fireEvent('reset')}"
+          @click="${() => this._fireEvent('reset')}"
           class="reset-btn"
-          >${this.resetButtonText ? this.resetButtonText : 'reset'}</mwc-button
+          >${this.resetButtonText ? this.resetButtonText : 'reset'}</stepper-button
         >
-        <mwc-button
+        <stepper-button
           ?hidden="${this.nonLinear || this._stepIndex === 0}"
           @click="${() => this._fireEvent('back')}"
           class="back-btn"
-          >${this.backButtonText ? this.backButtonText : 'back'}</mwc-button
+          >${this.backButtonText ? this.backButtonText : 'back'}</stepper-button
         >
       </div>
     `;
   }
+
   static get properties() {
     return {
       continueButtonText: { type: String },
@@ -314,13 +315,16 @@ export class SimpleStep extends LitElement {
       _horizontal: { type: Boolean, reflect: true },
     };
   }
+
   constructor() {
     super();
     this._horizontal = this.parentElement.horizontal;
   }
+
   firstUpdated() {
     this.parentElement._registerStep(this);
   }
+
   updated(changedProps) {
     const activeChanged = changedProps.has('active');
 
@@ -328,6 +332,7 @@ export class SimpleStep extends LitElement {
       this.parentElement._activeStepIndex = this._stepIndex;
     }
   }
+
   /**
    * Function: fire step-invalid event
    * */
@@ -339,17 +344,19 @@ export class SimpleStep extends LitElement {
       }),
     );
   }
+
   /**
    * Function: fire clicked event for button
    */
   _fireEvent(eventName) {
-    let payload = {
+    const payload = {
       bubbles: true,
       composed: true,
     };
     if (eventName === 'select') payload.detail = { index: this._stepIndex };
     this.dispatchEvent(new CustomEvent(`${eventName}-clicked`, payload));
   }
+
   /**
    * Function: makes self active step
    */
@@ -357,6 +364,7 @@ export class SimpleStep extends LitElement {
     this.parentElement.closeAll();
     this.active = true;
   }
+
   /**
    * Function: checks if can be set to active, if passes call _setActive()
    * */
@@ -373,14 +381,16 @@ export class SimpleStep extends LitElement {
       return;
     this._setActive();
   }
+
   /**
    * Return: icon name
    */
-  _getIcon(editable, save, locked) {
+  static _getIcon(editable, save, locked) {
     if (locked) return lockIcon;
     return editable ? editIcon : checkIcon;
   }
-  _computeIsIconHidden(locked, save, editable) {
+
+  static _computeIsIconHidden(locked, save, editable) {
     const b = locked || (save && editable) || save;
     console.log('computing is icon hidden:', b);
     return !b;
