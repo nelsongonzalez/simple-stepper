@@ -29,6 +29,13 @@
           <simple-step label="Third step" subtitle="I am locked, try opening me." locked></simple-step>
           <simple-step label="Last step" lastStep></simple-step>
         </simple-stepper>
+
+        <simple-stepper horizontal>
+          <simple-step label="First step" subtitle="Edit me!" editable></simple-step>
+          <simple-step label="Second step" subtitle="Please don't skip me." optional></simple-step>
+          <simple-step label="Third step" subtitle="I am locked, try opening me." locked></simple-step>
+          <simple-step label="Last step" lastStep></simple-step>
+        </simple-stepper>
       `,
       document.querySelector('#demo')
     );

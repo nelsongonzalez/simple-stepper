@@ -34,3 +34,35 @@ There are various milestones I would like to achieve with this component. Curren
 
 ## Disclaimer
 This is very much a work in progress, so take precautions if you plan on using ```<simple-stepper>``` in production. That being said, I depend on this component for my business needs, which means that I will continue to update and support this package for the foreseeable future. If you find that it's not working as expected or wish to see some feature added, please submit an issue and I will get right on it.
+
+## Publish
+
+clear .npmrc content
+
+```
+find . -type d -name "node_modules" -exec rm -rf {} +
+npm install
+```
+
+GitHub.com -> Settings -> Developer settings -> Personal access tokens -> Generate new token
+node: Publish simple-stepper
+scope: write:packages
+
+copy the token
+
+// .npmrc
+// ```
+// //npm.pkg.github.com/:_authToken=[token]
+// ```
+
+// .yarnrc
+// ```
+// "@nelsongonzalez:registry" "https://npm.pkg.github.com"
+// ```
+
+npm login --scope=@nelsongonzalez --registry=https://npm.pkg.github.com
+Username: [username]
+Password: [token]
+Email: ******
+
+npm publish
